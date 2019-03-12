@@ -1,4 +1,4 @@
-package com.episode6.hackit.mockspresso.tools.reflectguava;
+package com.episode6.hackit.mockspresso.reflectguava;
 
 import com.google.common.reflect.TypeToken;
 import com.google.errorprone.annotations.CheckReturnValue;

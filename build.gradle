@@ -11,7 +11,7 @@ repositories {
 
 def guavaVersion = '27.1-android'
 
-group = 'com.episode6.hackit.mockspresso.tools'
+group = 'com.episode6.hackit.mockspresso'
 version = "$guavaVersion-SNAPSHOT"
 
 
@@ -36,8 +36,8 @@ shadowJar {
   exclude 'META-INF/maven/'
 
   relocate 'com.google.common.reflect', 'com.episode6.hackit.mockspresso.reflect'
-  relocate 'com.google', 'com.episode6.hackit.mockspresso.tools.reflectguava'
-  relocate 'org.checkerframework', 'com.episode6.hackit.mockspresso.tools.reflectguava.checkerframework'
+  relocate 'com.google', 'com.episode6.hackit.mockspresso.reflectguava'
+  relocate 'org.checkerframework', 'com.episode6.hackit.mockspresso.reflectguava.checkerframework'
 
   minimize()
 }
