@@ -1,0 +1,49 @@
+buildscript { repositories { jcenter() } }
+
+wrapper {
+  gradleVersion = "5.1.1"
+  distributionType = "all"
+}
+
+repositories { 
+  jcenter() 
+}
+
+def guavaVersion = '27.1-android'
+
+group = 'com.episode6.hackit.mockspresso.tools'
+version = "$guavaVersion-SNAPSHOT"
+
+
+apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'java-library'
+apply plugin: 'com.episode6.hackit.gdmc'
+apply plugin: 'com.episode6.hackit.deployable.jar'
+
+dependencies {
+  compileOnly "com.google.guava:guava:$guavaVersion"
+}
+
+javadoc {
+  options.memberLevel = JavadocMemberLevel.PRIVATE
+}
+
+shadowJar {
+  configurations = [project.configurations.compileOnly]
+  classifier = ""
+
+  exclude 'META-INF/services/'
+  exclude 'META-INF/maven/'
+
+  relocate 'com.google.common.reflect', 'com.episode6.hackit.mockspresso.reflect'
+  relocate 'com.google', 'com.episode6.hackit.mockspresso.tools.reflectguava'
+  relocate 'org.checkerframework', 'com.episode6.hackit.mockspresso.tools.reflectguava.checkerframework'
+
+  minimize()
+}
+
+deployable.publication.main {
+  artifact shadowJar
+}
+
+
