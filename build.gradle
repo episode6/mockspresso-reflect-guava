@@ -12,7 +12,7 @@ repositories {
 def guavaVersion = '27.1-android'
 
 group = 'com.episode6.hackit.mockspresso'
-version = "$guavaVersion-SNAPSHOT"
+version = "$guavaVersion"
 
 
 apply plugin: 'com.github.johnrengelman.shadow'
