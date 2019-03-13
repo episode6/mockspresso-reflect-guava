@@ -6,9 +6,9 @@ This repo contains no code, we are just repackaging, relocating and trimming gua
 
 ## Usage
 ```
-repositories { jcenter() }
+repositories { maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' } }
 dependencies {
-    implementation 'com.episode6.hackit.mockspresso:mockspresso-reflect-guava:27.1-android'
+    implementation 'com.episode6.hackit.mockspresso:mockspresso-reflect-guava:27.1-android-r2-SNAPSHOT'
 }
 ```
 
